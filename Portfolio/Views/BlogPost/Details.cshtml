@@ -1,0 +1,35 @@
+﻿@model Portfolio.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Item - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>@Html.DisplayFor(model => model.Title)</h3>
+<hr />
+<h3>@Html.DisplayFor(model => model.Content)</h3>
+@*<p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</p>
+<p>@Html.DisplayNameFor(model => model.Content) : @Html.DisplayFor(model => model.Content)</p>
+<p>@Html.DisplayNameFor(model => model.BlogPostId) : @Html.DisplayFor(model => model.BlogPostId)</p>*@
+
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) | @Html.ActionLink("Back to List", "Index")</p>
+@*<h2>Comments would go here!</h2>*@
+
+
+@using System.Security.Claims
+
+@*<h2>Here is your list of Blogposts for now, @User.Identity.Name</h2>
+*@
+<hr />
+
+<h4>Comments</h4>
+
+
+    @foreach (var comment in Model.Comments)
+    {
+      @* @Html.DisplayFor(modelComment => comment.Content) | @Html.ActionLink("Delete", "Delete", new { id = blogPost.BlogPostId }) *@
+      @comment.Content
+     
+    }
+
+    @Html.ActionLink("Add A Comment", "Create", "Comment", new { id = Model.BlogPostId })
+@*<a class="">@Html.ActionLink("Add Review", "Create", "Reviews")</a>*@

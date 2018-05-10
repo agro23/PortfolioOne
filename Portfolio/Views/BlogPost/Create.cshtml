@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Portfolio.Models.BlogPost
+
+<h2>Add a New Blog Post</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title)
+    @Html.EditorFor(model => model.Title)
+    @Html.LabelFor(model => model.Content)
+    @Html.EditorFor(model => model.Content)
+    <input type="submit" value="Create" />
+}
+@Html.ActionLink("Back to List", "Index")

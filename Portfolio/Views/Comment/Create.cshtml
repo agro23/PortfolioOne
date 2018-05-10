@@ -1,0 +1,51 @@
+﻿@model Portfolio.Models.Comment
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
+@{
+    var id = ViewContext.RouteData.Values["id"];
+}
+*@
+
+
+@*
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>*@
+<body>
+
+    <form asp-action="Create">
+        <div class="create-form">
+            <h4>Write a Review</h4>
+            <hr />
+            <input type="hidden" asp-for="BlogPostId" value="@Model.BlogPostId"/>
+            <div class="form-group">
+                <label asp-for="Content" class="col-md-2 "></label>
+                <div class="col-md-10">
+                    <input asp-for="Content" class="form-control" />
+                </div>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Content_Body" class="col-md-2 "></label>
+                <div class="col-md-10">
+                    <input asp-for="Content_Body" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="rating" class="col-md-2 "></label>
+                <div class="col-md-10">
+                    <input asp-for="rating" class="form-control" type="number" min="1" max="5" />
+                </div>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-info" />
+            </div>
+        </div>
+    </form>
+    <div>
+        <a asp-controller="BlogPost" asp-action="Details">Back to List</a>
+    </div>
+</body>

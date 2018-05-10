@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Portfolio.Models.BlogPost>
+@using System.Security.Claims
+
+@*<h2>Here is your list of Blogposts for now, @User.Identity.Name</h2>
+<hr />
+*@
+<h2>Welcome to my blog!</h2>
+@if (Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Content)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var blogPost in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelBlogPost => blogPost.Content)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelBlogPost => blogPost.Title)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = blogPost.BlogPostId }) |
+                    @Html.ActionLink("Read", "Details", new { id = blogPost.BlogPostId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = blogPost.BlogPostId })
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <p>There are no posts to show yet!</p>
+}
+
+@Html.ActionLink("Create new", "Create")
+@*
+
+
+
+<ul>
+        @foreach (var blogPost in Model)
+        {
+            <li>@Html.DisplayFor(modelBlogPost => blogPost.Title)</li>
+        }
+    </ul>*@
