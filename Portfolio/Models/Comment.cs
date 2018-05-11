@@ -21,7 +21,7 @@ namespace Portfolio.Models
         public int BlogPostId { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; } // This would have been the user that posted the comment
         public virtual BlogPost BlogPost { get; set; }
-        public int Id { get; internal set; }
+        //public int Id { get; internal set; }
     }
 }
 

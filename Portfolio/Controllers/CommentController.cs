@@ -50,9 +50,9 @@ namespace Portfolio.Controllers
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             comment.ApplicationUser = currentUser;
-            _db.Comments.Add(blogpost);
+            _db.Comments.Add(comment);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "BlogPost");
         }
 
         public ActionResult Delete(int id)
