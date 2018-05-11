@@ -24,6 +24,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="1.1.4" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.3" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.2" />
+
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="RestSharp.NetCore" Version="105.2.3" />
+    <PackageReference Include="System.Runtime.Serialization.Json" Version="4.3.0" />
+   
   </ItemGroup>
 
   <ItemGroup>
@@ -43,5 +48,6 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\BlogPost\" />
     <Folder Include="Views\Comment\" />
+    <Folder Include="Views\Projects\" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>I have a lot of projects on GitHub since I went to code school at Epicodus</h2>
+<h2>Below is a list of my top three most starred projects:</h2>
+<p>
+
+    
+https://api.github.com/search/repositories?q=user:agro23&sort=stars&order=desc
+
+
+^-- this is my query!
+
+    How do I limit it to only three?
+
+    'https://api.github.com/user/repos?page=2&per_page=100'
+
+    
+
+    'https://api.github.com/user/repos?&per_page=3'
+
+
+    
+
+https://api.github.com/search/repositories?q=user:agro23&sort=stars&order=desc&per_page=3
+
+    
+    And how the hell do I parse the JSON into objects?
+
+</p>
