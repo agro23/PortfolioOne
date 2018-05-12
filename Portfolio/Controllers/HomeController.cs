@@ -31,5 +31,20 @@ namespace Portfolio.Controllers
         {
             return View();
         }
+
+        public IActionResult HelloAjax()
+        {
+            return Content("This is a test!", "text/plain");
+        }
+
+        public PartialViewResult GetJobExperience()
+        {
+            return PartialView("_jobExperience");
+        }
+
+        public CloseIt()
+        {
+            return Content("", "text/plain");
+        }
     }
 }

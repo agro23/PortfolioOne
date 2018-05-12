@@ -1,22 +1,44 @@
-﻿@model Portfolio.Models.BlogPost
+﻿@using Portfolio.Models
+@model Portfolio.Models.Comment
 
 @{
     ViewData["Title"] = "BlogPosts - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@*
 <h3>@Html.DisplayFor(model => model.Title)</h3>
 <hr />
-<h3>@Html.DisplayFor(model => model.Content)</h3>
+<h3>@Html.DisplayFor(model => model.Content)</h3>*@
 @*<p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</p>
 <p>@Html.DisplayNameFor(model => model.Content) : @Html.DisplayFor(model => model.Content)</p>
 <p>@Html.DisplayNameFor(model => model.BlogPostId) : @Html.DisplayFor(model => model.BlogPostId)</p>*@
-<p>@Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) | @Html.ActionLink("Back to List", "Index")</p>
+@*<p>@Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) | @Html.ActionLink("Back to List", "Index")</p>
 @*<h2>Comments would go here!</h2>*@
 
 @using System.Security.Claims
 
+<div>
+    <h4>@Model.BlogPostId</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogPost.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogPost.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogPost.Content)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogPost.Content)
+        </dd>
+    </dl>
+</div>
+
 @*<h2>Here is your list of Blogposts for now, @User.Identity.Name</h2>
-*@
+*@@*
 <hr />
 
 <h4>Comments</h4>
@@ -24,8 +46,9 @@
 
     @foreach (var comment in Model.Comments)
     {
-      @Html.DisplayFor(modelItem => comment.Content) | @Html.ActionLink("Delete", "Delete", new { id = blogPost.BlogPostId }) 
-    @* <p>@comment.Content</p>*@
+      <p>@Html.DisplayFor(modelItem => comment.Content)</p>
+       @* : @Html.ActionLink("Delete", "Delete", new { id = blogPost.BlogPostId }) </p>*@
+@*     <p>@comment.Content</p>
     }
 
     @Html.ActionLink("Add A Comment", "Create", "Comment", new { id = Model.BlogPostId })
@@ -80,16 +103,16 @@
             <p>There are no comments for this post</p>
 
         }
-    </div>
+    </div>*@
     <div class="col-sm-5 card card-body">
         <h4>Add A Comment</h4>
         <hr />
         <form action="/Comments/Create" method="post" class="form-group">
             <input class="form-control" type="hidden" name="blogPostId" value="@Model.BlogPostId" />
-           @* <input class="form-control" type="text" name="author" placeholder="Your Name" />*@
+           <input class="form-control" type="text" name="author" placeholder="Your Name" />
             <br />
             <textarea class="form-control" name="content" placeholder="Your Comment"></textarea><br />
-            <button class="btn btn-primary">Submit</button>
+            <button class="btn btn-info">Submit</button>
         </form>
     </div>
 </div>

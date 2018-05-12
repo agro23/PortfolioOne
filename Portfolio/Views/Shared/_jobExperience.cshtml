@@ -1,0 +1,78 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.closeMe').click(function () {
+      $.ajax({
+        type: 'GET',
+        url: '@Url.Action("CloseIt")',
+          success: function (result) {
+              $('#result1').html(result);
+          }
+          //},
+          //complete: function () {
+          //    alert("Done!");
+          //}
+      });
+    });
+    
+  });
+</script>
+@{
+}
+<br><br>
+<div class="well">
+<h3>EXPERIENCE</h3>
+<h4>02/2004 to Current</h4>
+<p><strong>Project Manager</strong><br>
+<strong>Studio Cutie – Portland, OR</strong><br>    
+I letter comics, localize script translations from Japanese and French. Manage creative contractor teams to produce publish-ready work.</p>
+<br><br>
+    
+<h4>03/2011 to 03/2016</h4>
+<p><strong>Co-Founder, Chief Creative Officer</strong><br>
+<strong>Comic Rocket – Portland, OR</strong><br>
+Started a digital comics website as part of the Portland Seed Fund’s first class. Maintained artist relationships, handled communications, wrote copy, plotted corporate strategy, and wore many other hats.</p>
+<br><br>
+
+<h4>03/2007 to 12/2010</h4>
+<p><strong>US Editor</strong><br>
+<strong>Tripwire Magazine – London, UK (remote)</strong><br>
+I wrote and edited copy, conceived and commissioned stories, handled public interface, planned strategy</p>
+<br><br>
+
+<h4>01/2003 to 02/2004</h4>
+<p><strong>Team Lead</strong><br>
+<strong>MAXIS – Walnut Creek, CA</strong><br>
+Localization Lead for Sims and other projects. Wrote and implemented test plans, developed test processes, literally wrote the book on testing for the department, managed teams, balanced multiple projects simultaneously.</p>
+<br><br>
+
+<h4>08/2002 to 01/2003</h4>
+<p><strong>QA Tester</strong><br>
+<strong>EA – Redwood Shores, CA</strong><br>
+Tested games for EA. Went from temp to fulltime and led a team from EARS to MAXIS to test Sims products.</p>
+<br><br>
+
+<h4>12/2001 to 08/2002</h4>
+<p><strong>Owner</strong><br>
+<strong>The Convergence Report – San Francisco, CA</strong><br>
+Published a tech newsletter focused on giving the straight story with no fluff. I also did all the desktop publishing and marketing.</p>
+<br><br>
+
+<h4>08/1999 to 02/2001</h4>
+<p><strong>Analyst / Editor</strong><br>
+<strong>Jon Peddie Associates – Tiburon, CA</strong><br>
+Started as Business Editor for Multimedia Week, contributing articles on IPOs. Went on to co-create Media Device Report as managing editor. Also contributed to white papers and wrote articles on videogames, interactive TV, and STBs.</p>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="text-center">
+      <button class="btn btn-default" id="singlebutton" onclick="location.href='@Url.Action("Index")';return false;"> Close</button>
+           
+    </div>
+  </div>
+</div>
+<div class="row"><br></div>

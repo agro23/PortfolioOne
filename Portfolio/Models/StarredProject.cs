@@ -28,10 +28,6 @@ namespace Portfolio.Models
 
         public static List<StarredProject> GitRepoList()
         {
-            //var client = new RestClient("https://api.twilio.com/2010-04-01");
-            //var request = new RestRequest("Accounts/{{Account SID}}/Messages.json", Method.GET);
-            //client.Authenticator = new HttpBasicAuthenticator("{{Account SID}}", "{{Auth Token}}");
-
             var client = new RestClient("https://api.github.com");
             var request = new RestRequest("/search/repositories?q=user:agro23&sort=stars&order=desc&per_page=3", Method.GET);
             request.AddHeader("User-Agent", "agro23");
@@ -43,33 +39,12 @@ namespace Portfolio.Models
                 response = await GetResponseContentAsync(client, request) as RestResponse;
             }).Wait();
 
-            //var result = JsonConvert.DeserializeObject<JObject>(response.Content);
-
-
             JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-            //var gitRepoList = JsonConvert.DeserializeObject<List<StarredProject>>(jsonResponse["messages"].ToString());
             List<StarredProject> gitRepoList = JsonConvert.DeserializeObject<List<StarredProject>>(jsonResponse["items"].ToString());
-            List<StarredProject> projectList = new List<StarredProject> { gitRepoList[0], gitRepoList[1], gitRepoList[2] };
+            //List<StarredProject> projectList = new List<StarredProject> { gitRepoList[0], gitRepoList[1], gitRepoList[2] };
 
-            return projectList;
+            return gitRepoList;
         }
-
-        //public static List<Project> GetProjects()
-        //{
-        //    var client = new RestClient("https://api.github.com/");
-        //    var request = new RestRequest("search/repositories?q=user:joelaphoto&sort=stars&order=asc", Method.GET);
-        //    request.AddHeader("User-Agent", "joelaphoto");
-        //    var response = new RestResponse();
-        //    Task.Run(async () =>
-        //    {
-        //        response = await GetResponseContentAsync(client, request) as RestResponse;
-        //    }).Wait();
-        //    JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(response.Content);
-        //    List<Project> projectList = JsonConvert.DeserializeObject<List<Project>>(jsonResponse["items"].ToString());
-        //    List<Project> topThree = new List<Project> { projectList[0], projectList[1], projectList[2] };
-        //    return topThree;
-        //}
-
 
         public static Task<IRestResponse> GetResponseContentAsync(RestClient theClient, RestRequest theRequest)
         {
@@ -84,23 +59,6 @@ namespace Portfolio.Models
     }
 
 }
-
-
-
-namespace Portfolio.Models
-{
-    public class Project
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string Html_Url { get; set; }
-
-
-
-
-    }
-}
-
 
 /*
 

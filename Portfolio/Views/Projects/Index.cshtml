@@ -5,33 +5,9 @@
 
 <h2>I have a lot of projects on GitHub since I went to code school at Epicodus</h2>
 <h2>Below is a list of my top three most starred projects:</h2>
-<p>
 
-    
-https://api.github.com/search/repositories?q=user:agro23&sort=stars&order=desc
-
-
-^-- this is my query!
-
-    How do I limit it to only three?
-
-    'https://api.github.com/user/repos?page=2&per_page=100'
-
-    
-
-    'https://api.github.com/user/repos?&per_page=3'
-
-
-    
-
-https://api.github.com/search/repositories?q=user:agro23&sort=stars&order=desc&per_page=3
-    
-    And how the hell do I parse the JSON into objects?
-
-</p>
-
-
-
+@*https://api.github.com/search/repositories?q=user:agro23&sort=stars&order=desc&per_page=3*@
+  
 @model IEnumerable<Portfolio.Models.StarredProject>
 
 <hr />
@@ -46,6 +22,8 @@ https://api.github.com/search/repositories?q=user:agro23&sort=stars&order=desc&p
         </li>
     }
 </ul>
+
+<p>Or you can simply head over to <a href="https://github.com/agro23">my github</a> repo and wade through my dozens of half-finished projects.</p>
 
 
 @Html.ActionLink("Back home", "Index", "Home")

@@ -1,7 +1,13 @@
 ﻿body {
+    background: url("../images/starfield.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     padding-top: 50px;
     padding-bottom: 20px
 }
+
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
@@ -9,6 +15,45 @@
     padding-left: 15px;
     padding-right: 15px
 }
+
+.fill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.fill-img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.backing {
+    background-color: rgba(50, 50, 50, 0.66)
+}
+
+.moreBacking {
+    background-color: rgba(225, 225, 225, 0.75)
+}
+
+h1 !important {
+    font-style: italic;
+    color: #ffffff;
+    text-align: center;
+    background: red
+}
+
+/* unvisited link */
+a:link {
+    color: #ffffff
+}
+
+.blog-link {
+    color: #cfcfcf
+    /*background-color: rgba(50, 50, 50, 0.5);*/
+}
+
 
 /* Set widths on the form inputs since otherwise they're 100% wide */
 input,
@@ -23,13 +68,32 @@ textarea {
     line-height: 1.4
 }
 
+/* buttons and links extension to use brackets: [ click me ] */
+.btn-bracketed::before {
+    display: inline-block;
+    content: "[";
+    padding-right: 0.5em
+}
+
+.btn-bracketed::after {
+    display: inline-block;
+    content: "]";
+    padding-left: 0.5em
+}
+
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%
 }
 
+
+.Blog-Background !important {
+    color: #ffffff
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
+
     /* Hide captions */
     .carousel-caption {
         display: none
