@@ -3,7 +3,21 @@
 }
 <script type="text/javascript">
   $(document).ready(function() {
-    $('.chooseMe').click(function () {
+    $('.chooseAboutMe').click(function () {
+      $.ajax({
+        type: 'GET',
+        url: '@Url.Action("GetMyInfo")',
+          success: function (result) {
+              $('#result1').html(result);
+          }
+          //},
+          //complete: function () {
+          //    alert("Done!");
+          //}
+      });
+    });
+
+    $('.chooseMyJobs').click(function () {
       $.ajax({
         type: 'GET',
         url: '@Url.Action("GetJobExperience")',
@@ -37,7 +51,7 @@
                     <strong>BACKGROUND</strong><br /> <br />
                     Multi-disciplined writer / analyst / editor with experience across a broad range of technology and genre culture fields and formats. Beefing up my skill set with best practices and programming experience from the ground up.
                 </p><p>
-                    <a class="btn btn-default chooseMe">
+                    <a class="btn btn-default chooseAboutMe">
                         @*href="https://github.com/agro23"*@
                         Learn More
                     </a>
@@ -59,7 +73,7 @@
                     @*<a class="btn btn-default" href="https://docs.google.com/document/d/1i4idyJ4ewtHehjli95wnwOPH6CdVu1NrEBf-LOboq50/edit">
                         Learn More
                     </a>*@
-                    <a class="btn btn-default chooseMe">
+                    <a class="btn btn-default chooseMyJobs">
                         Learn More
                     </a>
 

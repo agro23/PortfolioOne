@@ -37,9 +37,14 @@ namespace Portfolio.Controllers
         //    return Content("This is a test!", "text/plain");
         //}
 
+        public PartialViewResult GetMyInfo()
+        {
+            return PartialView("_MoreAboutMe");
+        }
+
         public PartialViewResult GetJobExperience()
         {
-            return PartialView("_jobExperience");
+            return PartialView("_JobExperience");
         }
 
         public IActionResult CloseIt()

@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.closeMe').click(function () {
+      $.ajax({
+        type: 'GET',
+        url: '@Url.Action("CloseIt")',
+          success: function (result) {
+              $('#result1').html(result);
+          }
+          //},
+          //complete: function () {
+          //    alert("Done!");
+          //}
+      });
+    });
+    
+  });
+</script>
+<div>
+<h2>About Me</h2>
+<h3>A long strange trip</h3>
+
+<p>I'm what you can rightly call a Jack of All Trades when it comes to creativity and technology.</p>
+
+</p>Even as a young adult all of my jobs were guiding me to where I am now. At 18 I was debugging educational software on the Commodore 64 for MicroEd. 
+At 21 I managed a B.Dalton Software Etc. I was the office manager of a company that made Pascal Units to work with dBase IV when I was 25. And these are the jobs that fell off of my resume to keep it at two pages</p>
+<p>In no particular order I've started businesses, written a manual on debugging for EA, played in bands in San Diego and San Francisco, written two comic issues that were the best-selling books that month, written for, edited and published magazines, archived magazines on CD ROM, run multiple web sites for clients including a comic store...the list goes on.</p>
+<p>What's strange though is that I've never coded software professionally before and that's why I went to Epicodus this Spring (2018). It's the last part of my skill collection to fill out.</p>
+<p>Speaking of collections, I also collect Silver and Golden Age comics, something I've been doing off and on since I was a kid. If you ever want to know anything about comics from making them to buying them I'm your guy. </p>
+<p>And of course I play RPGs, both computer and paper but mostly the paper kind. In fact, I like board and card games enough that I've invented several of my own. I might tell you about that some time too,</p>
+<p>Anyhow, I think I've filled out enough 'about me' words to be honest, but tell you what: if you have an cool company with creative and interesting work I'd sure like to add you to my collection too.</p>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="text-center">
+      <button class="btn btn-default" id="singlebutton" onclick="location.href='@Url.Action("Index")';return false;"> Close</button>
+           
+    </div>
+  </div>
+</div>
+<div class="row"><br></div>
