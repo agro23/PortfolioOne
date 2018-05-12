@@ -26,10 +26,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelBlogPost => blogPost.Content)
+                    @Html.DisplayFor(modelBlogPost => blogPost.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelBlogPost => blogPost.Title)
+                    @Html.DisplayFor(modelBlogPost => blogPost.Content)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = blogPost.BlogPostId }) |

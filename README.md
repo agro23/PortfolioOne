@@ -85,13 +85,13 @@ There will ultimately be two levels of user for this site: Administrator and Rea
 
 * Comment Data Model is created. -- X
 
-* Add Author name to Comments
+* Add Author name to Comments -- X
 
-* ??? Add DateTime to BlogPosts
+* ??? Add DateTime to BlogPosts ???
 
-* Migrate database to update BlogPosts and Comments
+* Migrate database to update BlogPosts and Comments -- X
 
-* Site MVC Built.
+* Basic Site MVC Built. -- X
   - Home Controller
   - Home View
   - Login/Register Controller
@@ -105,35 +105,43 @@ There will ultimately be two levels of user for this site: Administrator and Rea
 
 * Blog database migration -- X
 
-* Authentication via Nav bar -- !!!
+* AJAX calls for some buttons -- X
 
-* Fix Authorization!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+* - Basic Authentication via Nav bar -- X
+  - Logout didn't work right.
 
-* LOGOUT USING AJAX <---------------------------------------------------------
+* - Fix Authorization -- X
 
-* Blog Entries can be READ
+* Blog Entries can be READ -- X
 
-* Blog Entries can be created, retrieved, updated, and removed from the database.
+* Blog Entries can be created, retrieved, updated, and removed from the database. -- X
 
-* ?Users can be created, retrieved, updated, and removed from the database.
+* Blog Entry Comments can be read -- X
 
-* Blog Entry Comments can be read 
+* Blog Entry Comments can be created by Users. -- X
 
-* Blog Entry Comments can be added by Users.
+* Make API call to github -- X
 
-* Blog Entry Comments can be CREATED, READ, UPDATED, and DELETED by Admin
+* Parse JSON results into StarredProject object -- X
+
+* Display Results on Projects page -- X
 
 
-* Make API call to github
 
-* Parse JSON results into StarredProject object
+* Content updated to replace placeholders
 
-* Display Results on Projects page
-
+* All(?) GETs use Ajax
 
 * User Authorization Levels
 
 * Only Admin can post blog posts
+
+* Blog Entries can be CREATED, READ, UPDATED, and DELETED by Admin
+
+* Blog Entry Comments can be CREATED, READ, UPDATED, and DELETED by Admin
+
+* ??? Users can be created, retrieved, updated, and removed from the database.
+
 
 * Style and personalize site.
 
