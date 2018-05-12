@@ -22,6 +22,15 @@ namespace Portfolio.Models
         public virtual ApplicationUser ApplicationUser { get; set; } // This would have been the user that posted the comment
         public virtual BlogPost BlogPost { get; set; }
         //public int Id { get; internal set; }
+
+        //public Comment(int blogPostId, string author, string content)
+        public Comment(int blogPostId, string content)
+
+        {
+            BlogPostId = blogPostId;
+            //Author = author;
+            Content = content;
+        }
     }
 }
 

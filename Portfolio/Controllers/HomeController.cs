@@ -42,7 +42,7 @@ namespace Portfolio.Controllers
             return PartialView("_jobExperience");
         }
 
-        public CloseIt()
+        public IActionResult CloseIt()
         {
             return Content("", "text/plain");
         }

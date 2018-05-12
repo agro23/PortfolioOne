@@ -10,6 +10,7 @@ namespace Portfolio.Controllers
 {
     [Authorize]
     public class CommentController : Controller
+
     {
         private readonly PortfolioDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -31,29 +32,39 @@ namespace Portfolio.Controllers
             return View(_db.Comments.Where(x => x.ApplicationUser.Id == currentUser.Id));
         }
 
-        public IActionResult Create(int id)
-        {
-            Comment Model = new Comment();
-            Model.BlogPostId = id;
-            return View(Model);
-        }
-
         public IActionResult Details(int id)
         {
             var thisComment = _db.Comments.FirstOrDefault(Comments => Comments.CommentId == id);
             return View(thisComment);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create(Comment comment)
+        //public IActionResult Create(int id)
+        //{
+        //    Comment Model = new Comment();
+        //    Model.BlogPostId = id;
+        //    return View(Model);
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> Create(Comment comment)
+        //{
+        //    var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    var currentUser = await _userManager.FindByIdAsync(userId);
+        //    comment.ApplicationUser = currentUser;
+        //    _db.Comments.Add(comment);
+        //    _db.SaveChanges();
+        //    return RedirectToAction("Index", "BlogPost");
+        //}
+
+        public IActionResult Create()
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var currentUser = await _userManager.FindByIdAsync(userId);
-            comment.ApplicationUser = currentUser;
-            _db.Comments.Add(comment);
+            //Comment newComment = new Comment(int.Parse(Request.Form["postId"]), Request.Form["author"], Request.Form["content"]);
+            Comment newComment = new Comment(int.Parse(Request.Form["postId"]), Request.Form["content"]);
+            _db.Comments.Add(newComment);
             _db.SaveChanges();
-            return RedirectToAction("Index", "BlogPost");
+            return RedirectToAction("Details", "Posts", new { id = newComment.BlogPostId });
         }
+
 
         public ActionResult Delete(int id)
         {
@@ -70,3 +81,5 @@ namespace Portfolio.Controllers
         }
     }
 }
+
+

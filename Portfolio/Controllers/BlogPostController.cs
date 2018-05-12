@@ -59,11 +59,11 @@ namespace Portfolio.Controllers
 
                 .Include(c => c.Comments)
                 .SingleOrDefaultAsync(m => m.BlogPostId == id);
-            Comment comment = new Comment();
-            comment.BlogPost = post;
-            comment.BlogPostId = (int)id;
-            //ViewBag.Comments = _context.Comments.Where(c => c.PostId == id);
-            ViewBag.Comments = _db.Comments.Where(c => c.BlogPostId == id);
+            //Comment comment = new Comment();
+            //comment.BlogPost = post;
+            //comment.BlogPostId = (int)id;
+            ////ViewBag.Comments = _context.Comments.Where(c => c.PostId == id);
+            //ViewBag.Comments = _db.Comments.Where(c => c.BlogPostId == id);
 
             if (post == null)
             {
