@@ -180,11 +180,6 @@ There are no known bugs or issues at this time.
 
 ## Support and contact details
 
-@using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-default" value="Log out" />
-    }
-
 **Contact the author at andy.grossberg@gmail.com**
 
 ## License
