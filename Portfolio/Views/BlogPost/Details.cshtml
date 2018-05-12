@@ -1,11 +1,12 @@
-﻿@using Portfolio.Models
+﻿@*
+@using Portfolio.Models
 @model Portfolio.Models.Comment
 
 @{
     ViewData["Title"] = "BlogPosts - Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+*@
 @*
 <h3>@Html.DisplayFor(model => model.Title)</h3>
 <hr />
@@ -15,7 +16,7 @@
 <p>@Html.DisplayNameFor(model => model.BlogPostId) : @Html.DisplayFor(model => model.BlogPostId)</p>*@
 @*<p>@Html.ActionLink("Edit", "Edit", new { id = Model.BlogPostId }) | @Html.ActionLink("Back to List", "Index")</p>
 @*<h2>Comments would go here!</h2>*@
-
+@*
 @using System.Security.Claims
 
 <div>
@@ -36,6 +37,8 @@
         </dd>
     </dl>
 </div>
+
+*@
 
 @*<h2>Here is your list of Blogposts for now, @User.Identity.Name</h2>
 *@@*
@@ -104,7 +107,7 @@
 
         }
     </div>*@
-    <div class="col-sm-5 card card-body">
+ @*   <div class="col-sm-5 card card-body">
         <h4>Add A Comment</h4>
         <hr />
         <form action="/Comments/Create" method="post" class="form-group">
@@ -113,6 +116,65 @@
             <br />
             <textarea class="form-control" name="content" placeholder="Your Comment"></textarea><br />
             <button class="btn btn-info">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+*@
+
+
+@using Portfolio.Models
+@*@model Portfolio.Models.Comment*@
+
+@{
+    ViewData["Title"] = "BlogPosts - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var count = 1;
+}
+@model Portfolio.Models.BlogPost
+
+<div class="row card card-body">
+    <h2>@Model.Title</h2>
+    <h5>@Model.Content</h5>
+</div>
+<div class="row">
+    <div class="col-sm-7 card card-body">
+        <h4>Post Comments</h4>
+        <hr />
+        @if (Model.Comments.Count() > 0)
+        {
+
+            foreach (var comment in Model.Comments)
+            {
+                @*<p><i>@comment.Author</i> says:</p>*@
+                <p>@comment.Content</p>
+                if (count == 1)
+                {
+                    count++;
+                }
+                else
+                {
+                    <hr />
+                }
+            }
+        }
+        else
+        {
+            <p>There are no comments for this post</p>
+
+        }
+    </div>
+    <div class="col-sm-5 card card-body">
+        <h4>Add A Comment</h4>
+        <hr />
+        <form action="/Comments/Create" method="post" class="form-group">
+            <input class="form-control" type="hidden" name="blogPostId" value="@Model.BlogPostId" />
+           <input class="form-control" type="text" name="author" placeholder="Your Name" /> 
+            <br />
+            <textarea class="form-control" name="content" placeholder="Your Comment"></textarea><br />
+            <button class="btn btn-default">Submit</button>
         </form>
     </div>
 </div>

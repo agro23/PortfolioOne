@@ -14,6 +14,8 @@ namespace Portfolio.Models
         [Key]
         public int CommentId { get; set; }
 
+        public string Author { get; set; }
+
         [StringLength(255, ErrorMessage = "Please do not exceed 255 characters.")]
         public string Content { get; set; }
 
@@ -23,13 +25,17 @@ namespace Portfolio.Models
         public virtual BlogPost BlogPost { get; set; }
         //public int Id { get; internal set; }
 
-        //public Comment(int blogPostId, string author, string content)
-        public Comment(int blogPostId, string content)
+        public Comment(int blogPostId, string author, string content)
+        //public Comment(int blogPostId, string content)
 
         {
             BlogPostId = blogPostId;
-            //Author = author;
+            Author = author;
             Content = content;
+        }
+
+        public Comment()
+        {
         }
     }
 }

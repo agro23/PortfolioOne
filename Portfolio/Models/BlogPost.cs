@@ -22,6 +22,8 @@ namespace Portfolio.Models
         public string Content { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; } // This will be the authorization/authentication stuff
         public virtual ICollection<Comment> Comments { get; set; }
+        //public int Id { get; internal set; }
+
         //public virtual List<Comment> Comments { get; set; }
 
         public override bool Equals(System.Object otherBlogPost)

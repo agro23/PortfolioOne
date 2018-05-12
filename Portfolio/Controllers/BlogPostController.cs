@@ -46,33 +46,41 @@ namespace Portfolio.Controllers
 
 
 
-        // GET: Posts/Details/5
-        public async Task<IActionResult> Details(int? id)
+        //// GET: Posts/Details/5
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    //var post = await _context.Posts
+        //    var post = await _db.BlogPosts
+
+        //        .Include(c => c.Comments)
+        //        .SingleOrDefaultAsync(m => m.BlogPostId == id);
+        //    Comment comment = new Comment();
+        //    comment.BlogPost = post;
+        //    comment.BlogPostId = (int)id;
+        //    //ViewBag.Comments = _context.Comments.Where(c => c.PostId == id);
+        //    ViewBag.Comments = _db.Comments.Where(c => c.BlogPostId == id);
+
+        //    if (post == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(comment);
+        //}
+
+        public IActionResult Details(int id) // third time's the charm
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            BlogPost thisPost = _db.BlogPosts.FirstOrDefault(y => y.BlogPostId == id);
 
-            //var post = await _context.Posts
-            var post = await _db.BlogPosts
+            thisPost.Comments = _db.Comments.Where(c => c.BlogPostId == id).ToList();
 
-                .Include(c => c.Comments)
-                .SingleOrDefaultAsync(m => m.BlogPostId == id);
-            //Comment comment = new Comment();
-            //comment.BlogPost = post;
-            //comment.BlogPostId = (int)id;
-            ////ViewBag.Comments = _context.Comments.Where(c => c.PostId == id);
-            //ViewBag.Comments = _db.Comments.Where(c => c.BlogPostId == id);
-
-            if (post == null)
-            {
-                return NotFound();
-            }
-
-            return View(comment);
+            return View(thisPost);
         }
-
 
         // GET: BlogPosts/Edit/5
         public async Task<IActionResult> Edit(int? id)
